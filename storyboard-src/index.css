@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-agency-black: #121212;
+  --color-agency-dark: #1e1e1e;
+  /* raspberry — the We. burgundy family, tuned for dark UI */
+  --color-agency-accent: #d6336c;
+  --color-agency-gray: #b3b3b3;
+  --color-agency-paper: #f5f5f0;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

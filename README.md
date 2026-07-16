@@ -8,6 +8,19 @@ no server, no upload, no per-use cost. Free to host on any static host.
 | `/` | Hub | Landing page listing all tools |
 | `/cutout/` | Cutout | Removes image backgrounds locally ([ISNet](https://github.com/xuebinqin/DIS) via [`@imgly/background-removal`](https://github.com/imgly/background-removal-js)); exports transparent PNG. See [DESIGN.md](DESIGN.md). |
 | `/emoji/` | Emoji PNG | Renders any emoji to a transparent PNG (default 300×300) using the device's own emoji font — Apple Color Emoji on Mac/iOS — so no copyrighted artwork is redistributed. |
+| `/storyboard/` | Storyboard AI | Generates full video storyboards (strategy, shot list, AI frames) with Google Gemini. Built from `storyboard-src/` (React + Vite); users supply their own Gemini API key at runtime, stored in localStorage — no key is baked into the bundle. |
+
+## Rebuilding Storyboard AI
+
+`/storyboard/` is the committed build output of `storyboard-src/`. After editing the source:
+
+```sh
+cd storyboard-src
+npm install
+npm run build   # writes to ../storyboard
+```
+
+Commit both the source change and the regenerated `/storyboard/` output.
 
 ## Run locally
 
