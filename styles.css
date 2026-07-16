@@ -1,16 +1,16 @@
 /* ————————————————————————————————————————————————
    Cutout — design tokens
-   ground: studio grey · ink · rubylith red accent
+   We. Communications brand: blush ground · burgundy accent
    checker motif = transparency, the product's own material
    ———————————————————————————————————————————————— */
 :root {
-  --studio: #efeff2;
-  --ink: #141419;
-  --rubylith: #d91f3d;
+  --studio: #f7ece7;
+  --ink: #201418;
+  --accent: #7d0337;
   --checker-a: #ffffff;
-  --checker-b: #dcdce2;
-  --muted: #6e6e78;
-  --line: #c9c9d1;
+  --checker-b: #e9d8d1;
+  --muted: #86736f;
+  --line: #ddc9c1;
 
   --display: "Bricolage Grotesque", system-ui, sans-serif;
   --body: "Spline Sans", system-ui, sans-serif;
@@ -32,10 +32,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: inherit; text-decoration-color: var(--rubylith); text-underline-offset: 3px; }
+a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 
 :focus-visible {
-  outline: 2px solid var(--rubylith);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -90,7 +90,7 @@ main {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rubylith);
+  color: var(--accent);
   margin: 0 0 1rem;
 }
 
@@ -104,20 +104,8 @@ main {
   text-wrap: balance;
 }
 
-/* signature: the words are filled with the transparency checkerboard —
-   the background is literally cut out of the type */
 .checker-word {
-  background: var(--checker);
-  background-size: 18px 18px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--ink);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .checker-word { animation: drift 14s linear infinite; }
-  @keyframes drift { to { background-position: 72px 0; } }
+  color: var(--accent);
 }
 
 .lede {
@@ -144,14 +132,14 @@ main {
   text-align: center;
 }
 
-.dropzone.is-over { background: #fff6f7; border-color: var(--rubylith); }
+.dropzone.is-over { background: #fdf4f0; border-color: var(--accent); }
 
 /* crop marks — registration corners, like film on a light table */
 .cropmark {
   position: absolute;
   width: 18px;
   height: 18px;
-  border: 0 solid var(--rubylith);
+  border: 0 solid var(--accent);
 }
 .cropmark.tl { top: -7px; left: -7px; border-top-width: 2px; border-left-width: 2px; }
 .cropmark.tr { top: -7px; right: -7px; border-top-width: 2px; border-right-width: 2px; }
@@ -189,10 +177,10 @@ main {
   text-decoration: none;
 }
 
-.button:hover { background: var(--rubylith); border-color: var(--rubylith); }
+.button:hover { background: var(--accent); border-color: var(--accent); }
 
 .button-quiet { background: transparent; color: var(--ink); }
-.button-quiet:hover { background: transparent; color: var(--rubylith); }
+.button-quiet:hover { background: transparent; color: var(--accent); }
 
 /* ——— busy ——— */
 .busy {
@@ -217,6 +205,7 @@ main {
 
 @media (prefers-reduced-motion: no-preference) {
   .busy-checker { animation: drift 3s linear infinite; }
+  @keyframes drift { to { background-position: 66px 0; } }
 }
 
 .busy-label { font-family: var(--mono); font-size: 0.85rem; margin: 0; }
@@ -230,7 +219,7 @@ main {
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: var(--rubylith);
+  background: var(--accent);
   transition: width 0.2s ease;
 }
 
@@ -268,7 +257,7 @@ main {
   left: var(--pos, 50%);
   width: 2px;
   margin-left: -1px;
-  background: var(--rubylith);
+  background: var(--accent);
 }
 
 .compare-line::after {
@@ -279,7 +268,7 @@ main {
   transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
-  background: var(--rubylith);
+  background: var(--accent);
   border-radius: 50%;
 }
 
@@ -319,7 +308,7 @@ main {
   justify-content: center;
   gap: 0.4rem;
   background: #fff;
-  border: 1.5px solid var(--rubylith);
+  border: 1.5px solid var(--accent);
   padding: 2rem;
   text-align: center;
 }
@@ -365,7 +354,7 @@ main {
   font-family: var(--mono);
   font-weight: 400;
   font-size: 0.72rem;
-  color: var(--rubylith);
+  color: var(--accent);
   vertical-align: 0.5em;
   margin-right: 0.5em;
 }
