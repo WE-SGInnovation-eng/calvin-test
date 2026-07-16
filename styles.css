@@ -67,15 +67,18 @@ a { color: inherit; text-decoration-color: var(--accent); text-underline-offset:
   letter-spacing: -0.02em;
 }
 
-.wordmark::after {
-  content: "";
-  display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
-  margin-left: 0.3em;
-  background: var(--checker);
-  background-size: 8px 8px;
-  border: 1px solid var(--ink);
+.logo-mark {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 0.45em;
+  vertical-align: -0.35em;
+}
+
+.hero-logo {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 1.5rem;
 }
 
 .masthead-note {
@@ -408,6 +411,7 @@ main {
   gap: 0.5rem;
   background: #fff;
   border: 1.5px solid var(--ink);
+  border-radius: 18px;
   padding: 1.75rem;
   text-decoration: none;
 }
