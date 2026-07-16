@@ -32,3 +32,6 @@ so any free static host works:
 - The first run downloads the model (~40 MB); browsers cache it afterwards.
 - `@imgly/background-removal` is loaded from jsDelivr. Pinned to major
   version 1 — check the package's licence terms before commercial use.
+- Typography is [Source Sans 3](https://github.com/adobe-fonts/source-sans)
+  (SIL Open Font License 1.1), self-hosted as a variable woff2 in `fonts/` —
+  no external font requests.

@@ -3,6 +3,14 @@
    We. Communications brand: blush ground · burgundy accent
    checker motif = transparency, the product's own material
    ———————————————————————————————————————————————— */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/SourceSans3-VariableFont_wght.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --studio: #f7ece7;
   --ink: #201418;
@@ -12,9 +20,9 @@
   --muted: #86736f;
   --line: #ddc9c1;
 
-  --display: "Bricolage Grotesque", system-ui, sans-serif;
-  --body: "Spline Sans", system-ui, sans-serif;
-  --mono: "Spline Sans Mono", ui-monospace, monospace;
+  --display: "Source Sans 3", system-ui, sans-serif;
+  --body: "Source Sans 3", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
   --checker: repeating-conic-gradient(var(--checker-a) 0% 25%, var(--checker-b) 0% 50%);
   --measure: 62rem;
