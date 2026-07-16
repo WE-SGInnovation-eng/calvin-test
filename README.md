@@ -1,10 +1,13 @@
-# Cutout — free, browser-native background remover
+# We. Tools — small browser tools, zero servers
 
-Drop in a photo, get a transparent PNG. The segmentation model
-([ISNet](https://github.com/xuebinqin/DIS), via
-[`@imgly/background-removal`](https://github.com/imgly/background-removal-js))
-runs entirely in the visitor's browser — no server, no upload, no per-image
-cost. See [DESIGN.md](DESIGN.md) for the full architecture rationale.
+A hub of small creative tools that run entirely in the visitor's browser —
+no server, no upload, no per-use cost. Free to host on any static host.
+
+| Path | Tool | What it does |
+|---|---|---|
+| `/` | Hub | Landing page listing all tools |
+| `/cutout/` | Cutout | Removes image backgrounds locally ([ISNet](https://github.com/xuebinqin/DIS) via [`@imgly/background-removal`](https://github.com/imgly/background-removal-js)); exports transparent PNG. See [DESIGN.md](DESIGN.md). |
+| `/emoji/` | Emoji PNG | Renders any emoji to a transparent PNG (default 300×300) using the device's own emoji font — Apple Color Emoji on Mac/iOS — so no copyrighted artwork is redistributed. |
 
 ## Run locally
 
@@ -17,8 +20,8 @@ python3 -m http.server 8000
 
 ## Deploy for free
 
-The site is three static files (`index.html`, `styles.css`, `app.js`), so any
-free static host works:
+The site is plain static files (one shared `styles.css`, one folder per tool),
+so any free static host works:
 
 - **GitHub Pages** — repo Settings → Pages → deploy from branch. Model weights
   are fetched from IMG.LY's CDN at runtime, so the 100 MB file cap is irrelevant.

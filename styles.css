@@ -22,6 +22,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--studio);
@@ -73,6 +75,16 @@ a { color: inherit; text-decoration-color: var(--accent); text-underline-offset:
   font-size: 0.72rem;
   color: var(--muted);
   text-align: right;
+}
+
+.crumbs { display: flex; align-items: baseline; gap: 0.5rem; }
+.crumbs .wordmark { text-decoration: none; }
+.crumbs .wordmark:hover { color: var(--accent); }
+.crumb-sep { color: var(--muted); }
+.crumb {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 /* ——— hero ——— */
@@ -373,6 +385,148 @@ main {
 }
 
 .footer p { margin: 0; }
+
+/* ——— hub: tool cards ——— */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  padding: 1.75rem;
+  text-decoration: none;
+}
+
+.tool-card:hover { border-color: var(--accent); }
+
+.tool-kicker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tool-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.tool-card:hover .tool-name { color: var(--accent); }
+
+.tool-desc { margin: 0; color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
+
+.tool-go {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 0.75rem;
+}
+
+.tool-go::after { content: " →"; }
+
+/* ——— emoji tool ——— */
+.emoji-panel {
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  padding: 1.75rem;
+}
+
+.emoji-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.field { display: flex; flex-direction: column; gap: 0.35rem; flex-grow: 1; }
+.field-size { flex-grow: 0; }
+
+.field-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.emoji-input,
+.size-input {
+  font-family: var(--body);
+  font-size: 1.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.size-input { width: 7rem; font-size: 1.1rem; padding: 0.72rem 0.75rem; }
+
+.emoji-hint {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0.9rem 0 0;
+}
+
+.emoji-hint kbd {
+  font-family: inherit;
+  border: 1px solid var(--line);
+  padding: 0.05rem 0.3rem;
+  background: var(--studio);
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.emoji-card { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.emoji-preview {
+  background: var(--checker);
+  background-size: 20px 20px;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.emoji-preview canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.emoji-caption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.emoji-download {
+  margin-top: 0;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 /* ——— small screens ——— */
 @media (max-width: 40rem) {

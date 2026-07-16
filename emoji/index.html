@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emoji PNG — download any emoji as a transparent PNG</title>
+  <meta name="description" content="Turn any emoji into a crisp transparent PNG at 300×300, rendered with your device's own emoji set. Runs entirely in your browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Spline+Sans:wght@400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <nav class="crumbs">
+      <a class="wordmark" href="../">We. Tools</a>
+      <span class="crumb-sep" aria-hidden="true">/</span>
+      <span class="crumb">Emoji PNG</span>
+    </nav>
+    <span class="masthead-note">rendered on this device — on a Mac or iPhone you get Apple’s emoji</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Emoji → PNG · transparent · 300 × 300</p>
+      <h1 class="headline">
+        Any emoji.<br>
+        <span class="checker-word">As a PNG.</span>
+      </h1>
+      <p class="lede">Type or paste emoji below and download each one as a transparent PNG.
+      The artwork comes from this device’s own emoji font — Apple’s set on a Mac or iPhone,
+      Segoe UI Emoji on Windows.</p>
+    </section>
+
+    <section class="stage">
+      <div class="emoji-panel">
+        <div class="emoji-controls">
+          <label class="field">
+            <span class="field-label">Emoji</span>
+            <input type="text" id="emojiInput" class="emoji-input" value="🎉"
+                   autocomplete="off" spellcheck="false"
+                   placeholder="Paste or type emoji — several at once is fine">
+          </label>
+          <label class="field field-size">
+            <span class="field-label">Size (px)</span>
+            <input type="number" id="sizeInput" class="size-input" value="300" min="32" max="1024" step="1">
+          </label>
+        </div>
+        <p class="emoji-hint">Tip: press <kbd>Ctrl</kbd>+<kbd>Cmd</kbd>+<kbd>Space</kbd> on a Mac
+        (<kbd>Win</kbd>+<kbd>.</kbd> on Windows) to open the system emoji picker.</p>
+
+        <div class="emoji-grid" id="emojiGrid"></div>
+
+        <div class="result-actions">
+          <button class="button" id="downloadAll" type="button" hidden>Download all</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <h2 class="how-title">How it works</h2>
+      <ol class="how-steps">
+        <li>
+          <span class="how-key">Type</span>
+          <p>Enter one emoji or a whole run of them. Skin tones, flags and multi-part emoji all work.</p>
+        </li>
+        <li>
+          <span class="how-key">Render</span>
+          <p>Each emoji is drawn onto a transparent canvas using this device’s emoji font, centred and scaled to fit.</p>
+        </li>
+        <li>
+          <span class="how-key">Download</span>
+          <p>Save any emoji as a PNG — 300 × 300 by default, or set your own size up to 1024 px.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Nothing is uploaded and no artwork is redistributed — the PNG is rendered from the emoji
+    font already installed on your device.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
