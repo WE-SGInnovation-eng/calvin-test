@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cutout — remove image backgrounds in your browser</title>
+  <meta name="description" content="Remove the background from any image, entirely in your browser. No upload, no account, free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Spline+Sans:wght@400;500&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <span class="wordmark">Cutout</span>
+    <span class="masthead-note">runs entirely in your browser — images never leave this device</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Free background remover · no upload · no account</p>
+      <h1 class="headline">
+        Keep the subject.<br>
+        <span class="checker-word">Cut the rest.</span>
+      </h1>
+      <p class="lede">Drop a photo and a segmentation model running on this device separates the
+      subject from its background. Download a transparent PNG.</p>
+    </section>
+
+    <!-- State 1: drop zone -->
+    <section class="stage" id="dropState">
+      <div class="dropzone" id="dropzone" tabindex="0" role="button"
+           aria-label="Drop an image here, or press Enter to choose a file">
+        <span class="cropmark tl" aria-hidden="true"></span>
+        <span class="cropmark tr" aria-hidden="true"></span>
+        <span class="cropmark bl" aria-hidden="true"></span>
+        <span class="cropmark br" aria-hidden="true"></span>
+        <p class="dropzone-title">Drop an image here</p>
+        <p class="dropzone-alt">or paste from your clipboard, or</p>
+        <label class="button" for="fileInput">Choose a file</label>
+        <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" hidden>
+        <p class="dropzone-fine">JPEG, PNG or WebP · processed locally</p>
+      </div>
+    </section>
+
+    <!-- State 2: working -->
+    <section class="stage" id="busyState" hidden>
+      <div class="busy">
+        <div class="busy-checker" aria-hidden="true"></div>
+        <p class="busy-label" id="busyLabel" role="status">Preparing…</p>
+        <div class="progress" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+        <p class="busy-fine" id="busyFine">The model downloads once (~40&nbsp;MB) and is cached for next time.</p>
+      </div>
+    </section>
+
+    <!-- State 3: result -->
+    <section class="stage" id="resultState" hidden>
+      <div class="compare" id="compare">
+        <img class="compare-after" id="afterImg" alt="Image with background removed, shown on a transparency checkerboard">
+        <div class="compare-before" id="beforePane" aria-hidden="true">
+          <img id="beforeImg" alt="">
+        </div>
+        <div class="compare-line" id="compareLine" aria-hidden="true"></div>
+        <input type="range" class="compare-range" id="compareRange" min="0" max="100" value="50"
+               aria-label="Slide to compare original and cutout">
+        <span class="compare-tag tag-before" aria-hidden="true">original</span>
+        <span class="compare-tag tag-after" aria-hidden="true">cutout</span>
+      </div>
+      <div class="result-actions">
+        <a class="button" id="downloadLink" download>Download PNG</a>
+        <button class="button button-quiet" id="resetButton" type="button">Start over</button>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <section class="stage" id="errorState" hidden>
+      <div class="error" role="alert">
+        <p class="error-title">That didn’t work</p>
+        <p class="error-body" id="errorBody"></p>
+        <button class="button" id="retryButton" type="button">Try again</button>
+      </div>
+    </section>
+
+    <section class="how">
+      <h2 class="how-title">How it works</h2>
+      <ol class="how-steps">
+        <li>
+          <span class="how-key">Drop</span>
+          <p>Pick any photo. It stays in this tab — nothing is uploaded to a server.</p>
+        </li>
+        <li>
+          <span class="how-key">Separate</span>
+          <p>An open-source segmentation model (ISNet) runs on your device and builds an alpha mask around the subject.</p>
+        </li>
+        <li>
+          <span class="how-key">Download</span>
+          <p>The mask becomes the image’s transparency. You get a PNG ready for decks, listings or thumbnails.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built on <a href="https://github.com/imgly/background-removal-js">@imgly/background-removal</a>
+    and ONNX Runtime Web. First run fetches the model; after that it works from cache.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
