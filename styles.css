@@ -489,15 +489,15 @@ main {
 .emoji-input,
 .size-input {
   font-family: var(--body);
-  font-size: 1.5rem;
-  padding: 0.5rem 0.75rem;
+  font-size: 1.05rem;
+  padding: 0.65rem 0.75rem;
   border: 1.5px solid var(--ink);
   background: #fff;
   color: var(--ink);
   min-width: 0;
 }
 
-.size-input { width: 7rem; font-size: 1.1rem; padding: 0.72rem 0.75rem; }
+.size-input { width: 7rem; }
 
 .emoji-hint {
   font-family: var(--mono);
@@ -513,44 +513,67 @@ main {
   background: var(--studio);
 }
 
-.emoji-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
+.emoji-lib { margin-top: 0.5rem; }
 
-.emoji-card { margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.lib-group { margin-top: 1.75rem; }
 
-.emoji-preview {
-  background: var(--checker);
-  background-size: 20px 20px;
-  border: 1.5px solid var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
-  overflow: hidden;
-}
-
-.emoji-preview canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.emoji-caption {
+.lib-group-title {
   font-family: var(--mono);
   font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--muted);
-  text-align: center;
+  margin: 0 0 0.6rem;
 }
 
-.emoji-download {
-  margin-top: 0;
-  padding: 0.45rem 0.75rem;
-  font-size: 0.9rem;
-  text-align: center;
+.lib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.1rem, 1fr));
+  gap: 0.2rem;
+}
+
+.emoji-cell {
+  /* Must match the canvas font stack in emoji/app.js so the support probe
+     and the on-screen glyph resolve to the same font. */
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 0.45rem 0.2rem;
+  background: transparent;
+  border: 2px dotted transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.emoji-cell:hover,
+.emoji-cell:focus-visible {
+  border-color: var(--plum);
+  background: #fff;
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emoji-cell:hover,
+  .emoji-cell:focus-visible { transform: none; }
+}
+
+.emoji-empty { color: var(--muted); margin: 1.5rem 0 0; }
+
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(90vw, 34rem);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(32, 20, 24, 0.25);
 }
 
 /* ——— small screens ——— */

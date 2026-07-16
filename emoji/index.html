@@ -26,33 +26,30 @@
         Any emoji.<br>
         <span class="checker-word">As a PNG.</span>
       </h1>
-      <p class="lede">Type or paste emoji below and download each one as a transparent PNG.
-      The artwork comes from this device’s own emoji font — Apple’s set on a Mac or iPhone,
-      Segoe UI Emoji on Windows.</p>
+      <p class="lede">Browse the library and click any emoji — the transparent PNG downloads
+      straight away. The artwork comes from this device’s own emoji font — Apple’s set on a
+      Mac or iPhone, Segoe UI Emoji on Windows.</p>
     </section>
 
     <section class="stage">
       <div class="emoji-panel">
         <div class="emoji-controls">
           <label class="field">
-            <span class="field-label">Emoji</span>
-            <input type="text" id="emojiInput" class="emoji-input" value="🎉"
-                   autocomplete="off" spellcheck="false"
-                   placeholder="Paste or type emoji — several at once is fine">
+            <span class="field-label">Search</span>
+            <input type="search" id="searchInput" class="emoji-input" autocomplete="off"
+                   spellcheck="false"
+                   placeholder="Search 1,914 emoji by name — or paste any emoji here">
           </label>
           <label class="field field-size">
             <span class="field-label">Size (px)</span>
             <input type="number" id="sizeInput" class="size-input" value="300" min="32" max="1024" step="1">
           </label>
         </div>
-        <p class="emoji-hint">Tip: press <kbd>Ctrl</kbd>+<kbd>Cmd</kbd>+<kbd>Space</kbd> on a Mac
-        (<kbd>Win</kbd>+<kbd>.</kbd> on Windows) to open the system emoji picker.</p>
+        <p class="emoji-hint">Click any emoji to download it as a transparent PNG.</p>
 
-        <div class="emoji-grid" id="emojiGrid"></div>
-
-        <div class="result-actions">
-          <button class="button" id="downloadAll" type="button" hidden>Download all</button>
-        </div>
+        <div class="emoji-lib" id="library"></div>
+        <p class="emoji-empty" id="emptyNote" hidden>No matches — try another word, or paste
+        the emoji itself into the search box.</p>
       </div>
     </section>
 
@@ -60,26 +57,29 @@
       <h2 class="how-title">How it works</h2>
       <ol class="how-steps">
         <li>
-          <span class="how-key">Type</span>
-          <p>Enter one emoji or a whole run of them. Skin tones, flags and multi-part emoji all work.</p>
+          <span class="how-key">Find</span>
+          <p>Browse by category or search by name. Skin-tone or other variants? Paste the exact emoji into the search box.</p>
         </li>
         <li>
-          <span class="how-key">Render</span>
-          <p>Each emoji is drawn onto a transparent canvas using this device’s emoji font, centred and scaled to fit.</p>
+          <span class="how-key">Click</span>
+          <p>One click downloads the PNG — transparent background, 300 × 300 by default, or set your own size up to 1024 px.</p>
         </li>
         <li>
-          <span class="how-key">Download</span>
-          <p>Save any emoji as a PNG — 300 × 300 by default, or set your own size up to 1024 px.</p>
+          <span class="how-key">Use</span>
+          <p>Drop it straight into decks, social assets or thumbnails. The artwork is rendered by this device’s emoji font.</p>
         </li>
       </ol>
     </section>
   </main>
+
+  <div class="toast" id="toast" role="status" hidden></div>
 
   <footer class="footer">
     <p>Nothing is uploaded and no artwork is redistributed — the PNG is rendered from the emoji
     font already installed on your device.</p>
   </footer>
 
+  <script src="emoji-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
