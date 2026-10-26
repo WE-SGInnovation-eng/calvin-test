@@ -22,6 +22,20 @@ npm run build   # writes to ../storyboard
 
 Commit both the source change and the regenerated `/storyboard/` output.
 
+## Video (HyperFrames)
+
+`video/` is a [HyperFrames](https://hyperframes.heygen.com) project: write HTML, render MP4. It needs Node 22+ and FFmpeg.
+
+```sh
+cd video
+npx hyperframes browser ensure   # one-off: downloads the headless Chrome used for rendering
+npm run dev                      # live preview studio
+npm run check                    # lint and validate the composition
+npm run render                   # render to MP4
+```
+
+Run `npx hyperframes skills` to install the HyperFrames agent skills for Claude Code and other AI tools.
+
 ## Run locally
 
 Any static file server works (ES modules won't load from `file://`):
